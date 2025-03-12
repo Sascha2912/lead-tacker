@@ -6,18 +6,26 @@ const inputElement = document.getElementById("input-element");
 const leadListElement = document.getElementById("lead-list-element");
 
 // === Variablen deklarieren ===
-let myLeads = ["www.awesomelead.com", "www.epiclead.com", "www.greatlead.com"];
+let myLeads = [];
+/**
+ * Methode zum Rendern aller Elemente im myLead Array als <li> in der unorderd list
+ */
+const renderLeads = () => {
+   
+    let listItems = "";
 
+    myLeads.forEach(lead => {
+        listItems += `<li>${lead}</li>`;
+    }); 
+
+    leadListElement.innerHTML = listItems; 
+};
 
 // === Funktionen implementieren ===
 const saveLead = () => {
-    // myLeads.push(inputElement.value);
+    myLeads.push(inputElement.value);
 
-    myLeads.forEach(item => {
-        leadListElement.innerHTML += `<li>${item}</li>`;
-    });
-
-    
+    renderLeads();
 };
 
 // === Event-Bindings ===
